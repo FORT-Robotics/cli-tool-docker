@@ -1,0 +1,290 @@
+{
+  "name": "FRC Config Utility",
+  "type": "Menu",
+  "back": "Quit",
+  "menu": [
+    {
+      "name": "Device serial number",
+      "type": "SingleRwEndpointWithType",
+      "args": {
+        "endpoint": "cfg/setup/serialNumber",
+        "validator": "frc_validate_serial_number",
+        "contentFormat": "TextPlain"
+      }
+    },
+    {
+      "name": "Device firmware version",
+      "type": "SingleRoEndpointWithType",
+      "args": {
+        "endpoint": "cfg/setup/fwVersion",
+        "contentFormat": "TextPlain"
+      }
+    },
+    {
+      "name": "CPU temperature",
+      "type": "SingleRoEndpointWithType",
+      "args": {
+        "endpoint": "cfg/setup/cpuTemp",
+        "contentFormat": "TextPlain",
+        "dataFormat": "temperature_32s"
+      }
+    },
+    {
+      "name": "Device temperature",
+      "type": "SingleRoEndpointWithType",
+      "args": {
+        "endpoint": "cfg/setup/deviceTemp",
+        "contentFormat": "TextPlain",
+        "dataFormat": "temperature_32s"
+      }
+    },
+    {
+      "name": "Device reboot",
+      "type": "SingleWoEndpointWithType",
+      "args": {
+        "endpoint": "cfg/setup/systemReset",
+        "contentFormat": "TextPlain",
+        "value": "n"
+      }
+    },
+    {
+      "name": "Device firmware",
+      "type": "FileMenu",
+      "args": {
+        "endpoint": "fs/data",
+        "metadata_endpoint": "fs/metadata",
+        "path": "devFirmware.bin",
+        "target_filename": "updateAppImg.bin"
+      }
+    },
+    {
+      "name": "BLE Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "MAC address",
+          "type": "SingleRoEndpoint",
+          "args": {
+            "endpoint": "cfg/setup/deviceMac"
+          }
+        },
+        {
+          "name": "Pair MAC address",
+          "type": "BlePeerMacAddressRwEndpoint",
+          "args": {
+            "endpoint": "cfg/setup/pairedDeviceMac",
+            "validator": "validate_mac_address",
+            "contentFormat": "TextPlain"
+          }
+        },
+        {
+          "name": "Remove MAC address",
+          "type": "BleRemovePeerRwEndpoint",
+          "args": {
+            "endpoint": "cfg/setup/pairedDeviceMac",
+            "validator": "validate_mac_address",
+            "contentFormat": "TextPlain"
+          }
+        },
+        {
+          "name": "Pair MAC index",
+          "type": "SingleRwEndpointWithType",
+          "args": {
+            "endpoint": "cfg/setup/pairedMacIndex",
+            "validator": "frc_validate_ble_pair_index",
+            "contentFormat": "TextPlain",
+            "dataFormat": "number"
+          }
+        },
+        {
+          "name": "Radio mode",
+          "type": "SingleRwEndpointWithType",
+          "args": {
+            "endpoint": "cfg/setup/radioMode",
+            "validator": "frc_validate_radio_mode",
+            "contentFormat": "TextPlain",
+            "dataFormat": "radioMode"
+          }
+        },
+        {
+          "name": "Radio Firmware",
+          "type": "FileMenu",
+          "args": {
+            "endpoint": "fs/data",
+            "metadata_endpoint": "fs/metadata",
+            "path": "radioFirmware.bin",
+            "target_filename": "btRadioFw.freqHop.bin"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ISM Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Radio channel",
+          "type": "SingleRwEndpointWithFakeCBORType",
+          "args": {
+            "endpoint": "cfg/setup/radioChannel",
+            "validator": "validate_ism_rf_channel",
+            "contentFormat": "CBOR",
+            "dataFormat": "string"
+          }
+        },
+        {
+          "name": "Radio mode",
+          "type": "SingleRwEndpointWithType",
+          "description": "Must be one of 'TDMA_BASE', 'TDMA_REMOTE', 'CENTRAL', or 'PERIPHERAL'",
+          "args": {
+            "endpoint": "cfg/setup/ism/mode",
+            "validator": "frc_validate_ism_mode",
+            "contentFormat": "TextPlain",
+            "dataFormat": "radioMode"
+          }
+        },
+        {
+          "name": "Radio power",
+          "type": "SingleRwEndpointWithFakeCBORType",
+          "args": {
+            "endpoint": "cfg/setup/radioPower",
+            "validator": "validate_ism_power",
+            "contentFormat": "CBOR",
+            "dataFormat": "string"
+          }
+        },
+        {
+          "name": "Own address",
+          "type": "IsmAddressRwEndpoint",
+          "args": {
+            "endpoint": "cfg/setup/ism/ownAddr",
+            "validator": "frc_validate_ism_addr",
+            "contentFormat": "TextPlain",
+            "dataFormat": "ismAddr"
+          }
+        },
+        {
+          "name": "Pair address",
+          "type": "IsmAddressPeerRwEndpoint",
+          "args": {
+            "endpoint": "cfg/setup/ism/pairAddr",
+            "validator": "frc_validate_ism_pair_address",
+            "contentFormat": "TextPlain",
+            "dataFormat": "ismAddr"
+          }
+        },
+        {
+          "name": "Remove paired device",
+          "type": "IsmRemovePeerRwEndpoint",
+          "args": {
+            "endpoint": "cfg/setup/ism/pairAddr",
+            "validator": "frc_validate_ism_pair_address",
+            "contentFormat": "TextPlain",
+            "dataFormat": "ismAddr"
+          }
+        },
+        {
+          "name": "ISM radio firmware",
+          "type": "FileMenu",
+          "args": {
+            "endpoint": "fs/data",
+            "metadata_endpoint": "fs/metadata",
+            "path": "radioFirmware.bin",
+            "target_filename": "ismfw.bin"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SafetyMCU Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "SMCU Firmware",
+          "type": "FolderMenu",
+          "args": {
+            "endpoint": "fs/data",
+            "metadata_endpoint": "fs/metadata",
+            "local_paths": ["ER_RO", "ER_FS", "ER_OPT_BYTES"],
+            "target_filenames": ["ER_RO", "ER_FS", "ER_OPT_BYTES"]
+          }
+        },
+        {
+          "name": "SMCU Settings",
+          "type": "FileMenu",
+          "args": {
+            "endpoint": "fs/data",
+            "metadata_endpoint": "fs/metadata",
+            "path": "smcuSettings.blob",
+            "target_filename": "smcuSettings.blob"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Joystick information",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Period",
+          "type": "SingleRwEndpointWithFakeCBORType",
+          "args": {
+            "endpoint": "st/joystick/period",
+            "validator": "frc_validate_js_kp_period",
+            "contentFormat": "CBOR"
+          }
+        },
+        {
+          "name": "Status",
+          "type": "SingleRoEndpointWithType",
+          "args": {
+            "endpoint": "st/joystick",
+            "contentFormat": "CBOR"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Keypad information",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Period",
+          "type": "SingleRwEndpointWithFakeCBORType",
+          "args": {
+            "endpoint": "st/keypad/period",
+            "validator": "frc_validate_js_kp_period",
+            "contentFormat": "CBOR"
+          }
+        },
+        {
+          "name": "Status",
+          "type": "SingleRoEndpointWithType",
+          "args": {
+            "endpoint": "st/keypad",
+            "contentFormat": "CBOR"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FRC Mode",
+      "type": "SingleRoEndpointWithType",
+      "args": {
+        "endpoint": "st/mode",
+        "contentFormat": "TextPlain",
+        "dataFormat": "frcMode"
+      }
+    },
+    {
+      "name": "Secure Config",
+      "type": "FileMenu",
+      "args": {
+        "endpoint": "fs/data",
+        "metadata_endpoint": "fs/metadata",
+        "path": "secureConfig.cbor",
+        "target_filename": "secureConfig.cbor"
+      }
+    }
+  ]
+}

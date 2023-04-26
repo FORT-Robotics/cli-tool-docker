@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "fort-cli-cfg"
+version = "2.3.1"
+description = "Basic configuration utility for FORT Devices"
+authors = ["FORT Robotics <developers@fortrobotics.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.6,<4.0"
+requests = "^2.25.0"
+aiocoap = "0.4b3"
+simple-term-menu = "^1.2.1"
+pyserial = "^3.5"
+sliplib = "^0.6.2"
+invoke = "^1.6.0"
+typing-extensions = "^3.10.0.2"
+cbor2 = "^5.4.2"
+linuxfd = "^1.5"
+async_generator = { version = "^1.10", python = "<3.7" }
+importlib-metadata = { version = "^4.8.3", python = "<3.8" }
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+fort_cli_cfg = "fort_cli_cfg:cfgtool"
+serial_udp_bridge = "fort_cli_cfg.serial_udp_bridge:main"
+serial_coap_proxy = "fort_cli_cfg.serial_coap_proxy:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,1135 @@
+{
+  "name": "EPC Config Utility",
+  "type": "Menu",
+  "back": "Quit",
+  "menu": [
+    {
+      "name": "BLE Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Peer MAC Address",
+          "type": "SingleRwEndpoint",
+          "description": "MAC address of peer device",
+          "args": {
+            "endpoint": "cfg/net/ble0/pairMac",
+            "validator": "validate_mac_address"
+
+          }
+        },
+        {
+          "name": "Device is Server",
+          "type": "SingleRwEndpoint",
+          "description": "Options:\n  true:  EPC acts as an advertising peripheral device\n  false: EPC acts as a scanning central device",
+          "args": {
+            "endpoint": "cfg/net/ble0/isServer",
+            "validator": "validate_boolean"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IP Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Port 0",
+          "type": "Menu",
+          "menu": [
+            {
+              "name": "Port 0 IP Address",
+              "description": "<IP address>/<netmask>, eg. 10.0.0.1/24",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/net/eth0/port0/ip",
+                  "validator": "validate_ipv4_slash_notation"
+              }
+            },
+            {
+              "name": "Port 0 DHCP",
+              "type": "SingleRwEndpoint",
+              "description": "Set to true to make this port act as a DHCP server",
+              "args": {
+                  "endpoint": "cfg/net/eth0/port0/dhcp",
+                  "validator": "validate_dhcp"
+              }
+            },
+            {
+              "name": "Port 0 Gateway",
+              "type": "SingleRwEndpoint",
+              "description": "<IP address>, eg. 10.0.0.1",
+              "args": {
+                  "endpoint": "cfg/net/eth0/port0/gateway",
+                  "validator": "validate_ipv4"
+              }
+            },
+            {
+              "name": "Port 0 DNS",
+              "type": "SingleRwEndpoint",
+              "description": "<IP address>, eg. 10.0.0.1",
+              "args": {
+                  "endpoint": "cfg/net/eth0/port0/dns",
+                  "validator": "validate_ipv4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Port 1",
+          "type": "Menu",
+          "menu": [
+            {
+              "name": "Port 1 IP Address",
+              "type": "SingleRwEndpoint",
+              "description": "<IP address>/<netmask>, eg. 10.0.0.1/24",
+              "args": {
+                  "endpoint": "cfg/net/eth0/port1/ip",
+                  "validator": "validate_ipv4_slash_notation"
+              }
+            },
+            {
+              "name": "Port 1 DHCP",
+              "type": "SingleRwEndpoint",
+              "description": "Set to true to make this port act as a DHCP server",
+              "args": {
+                  "endpoint": "cfg/net/eth0/port1/dhcp",
+                  "validator": "validate_dhcp"
+              }
+            },
+            {
+              "name": "Port 1 Gateway",
+              "type": "SingleRwEndpoint",
+              "description": "<IP address>, eg. 10.0.0.1",
+              "args": {
+                  "endpoint": "cfg/net/eth0/port1/gateway",
+                  "validator": "validate_ipv4"
+              }
+            },
+            {
+              "name": "Port 1 DNS",
+              "type": "SingleRwEndpoint",
+              "description": "<IP address>, eg. 10.0.0.1",
+              "args": {
+                  "endpoint": "cfg/net/eth0/port1/dns",
+                  "validator": "validate_ipv4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WLAN 0",
+          "type": "Menu",
+          "menu": [
+            {
+              "name": "WLAN 0 IP Address",
+              "type": "SingleRwEndpoint",
+              "description": "<IP address>/<netmask>, eg. 10.0.0.1/24",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/ip",
+                  "validator": "validate_ipv4_slash_notation"
+              }
+            },
+            {
+              "name": "WLAN 0 DHCP",
+              "type": "SingleRwEndpoint",
+              "description": "Set to true to make this port act as a DHCP server",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/dhcp",
+                  "validator": "validate_dhcp"
+              }
+            },
+            {
+              "name": "WLAN 0 Gateway",
+              "type": "SingleRwEndpoint",
+              "description": "<IP address>, eg. 10.0.0.1",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/gateway",
+                  "validator": "validate_ipv4"
+              }
+            },
+            {
+              "name": "WLAN 0 DNS",
+              "type": "SingleRwEndpoint",
+              "description": "<IP address>, eg. 10.0.0.1",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/dns",
+                  "validator": "validate_ipv4"
+              }
+            },
+            {
+              "name": "Device is Client",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/isClient",
+                  "validator": "validate_boolean"
+              }
+            },
+            {
+              "name": "Device is Server",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/isServer",
+                  "validator": "validate_boolean"
+              }
+            },
+            {
+              "name": "WLAN SSID to connect",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/clientSSID",
+                  "validator": "validate_ssid"
+              }
+            },
+            {
+              "name": "WLAN PSK to connect",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/clientPsk",
+                  "validator": "validate_psk"
+              }
+            },
+            {
+              "name": "WLAN SSID to broadcast",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/serverSSID",
+                  "validator": "validate_ssid"
+              }
+            },
+            {
+              "name": "WLAN PSK to broadcast",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/net/wlan0/serverPsk",
+                  "validator": "validate_psk"
+              }
+            }
+
+          ]
+        },
+        {
+          "name": "(RO) MAC Address",
+          "type": "SingleRwEndpoint",
+          "args": {
+              "endpoint": "cfg/net/eth0/mac",
+              "validator": "validate_mac_address"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Peer Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Peer0 Config",
+          "type": "Menu",
+          "menu": [
+            {
+              "name": "Peer 0 Address",
+              "type": "SingleRwEndpoint",
+              "description": "CoAP address and path, in the form 'coap://addr_or_name:optional_port'",
+              "args": {
+                  "endpoint": "cfg/peers/peer0/addr",
+                  "validator": "validate_coap_address"
+              }
+            },
+            {
+              "name": "Peer 0 Name",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/peers/peer0/name",
+                  "validator": "validate_peer_name"
+              }
+            },
+            {
+              "name": "Peer 0 Observable",
+              "type": "ObservableRwEndpoint",
+              "description": "JSON array of objects, each object containing\n  \"observeType\" (string, only option is \"directForward\")\n  \"targetTopic\" (array of strings of ZMQ topics), and\n  \"toObserve\" (string, observation path).\nQuotes must be escaped at least once, and sometimes multiple times depending on nesting.",
+              "args": {
+                  "endpoint": "cfg/peers/peer0/obsv",
+                  "observables": {
+                    "default":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      }
+                    ],
+                    "all":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/keypad"],
+                          "toObserve": "/st/keypad"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/joystick/calibrated"],
+                          "toObserve": "/st/joystick/calibrated"
+                      }
+                    ]
+                  }
+              }
+            },
+            {
+              "name":"Delete Peer 0",
+              "type": "DiscreteCfgMultiPostEndpoint",
+              "args": {
+                "prompt": "Confirm Deletion [type \"delete\"]:",
+                "action_descriptor": {
+                    "delete": [
+                        ["cfg/peers/peer0", {"name": ""}],
+                        ["cfg/peers/peer0", {"addr": ""}],
+                        ["cfg/peers/peer0", {"obsv": "[]"}]
+                    ]
+                },
+                "validator" : "validate_peer_deletion"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Peer1 Config",
+          "type": "Menu",
+          "menu": [
+            {
+              "name": "Peer 1 Address",
+              "type": "SingleRwEndpoint",
+              "description": "CoAP address and path, in the form 'coap://addr_or_name:optional_port'",
+              "args": {
+                  "endpoint": "cfg/peers/peer1/addr",
+                  "validator": "validate_coap_address"
+              }
+            },
+            {
+              "name": "Peer 1 Name",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/peers/peer1/name",
+                  "validator": "validate_peer_name"
+              }
+            },
+            {
+              "name": "Peer 1 Observable",
+              "type": "ObservableRwEndpoint",
+              "description": "JSON array of objects, each object containing\n  \"observeType\" (string, only option is \"directForward\")\n  \"targetTopic\" (array of strings of ZMQ topics), and\n  \"toObserve\" (string, observation path).\nQuotes must be escaped at least once, and sometimes multiple times depending on nesting.",
+              "args": {
+                  "endpoint": "cfg/peers/peer1/obsv",
+                  "observables": {
+                    "default":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      }
+                    ],
+                    "all":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/keypad"],
+                          "toObserve": "/st/keypad"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/joystick/calibrated"],
+                          "toObserve": "/st/joystick/calibrated"
+                      }
+                    ]
+                  }
+              }
+            },
+            {
+              "name":"Delete Peer 1",
+              "type": "DiscreteCfgMultiPostEndpoint",
+              "args": {
+                "prompt": "Confirm Deletion [type \"delete\"]:",
+                "action_descriptor": {
+                    "delete": [
+                        ["cfg/peers/peer1", {"name": ""}],
+                        ["cfg/peers/peer1", {"addr": ""}],
+                        ["cfg/peers/peer1", {"obsv": "[]"}]
+                    ]
+                },
+                "validator" : "validate_peer_deletion"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Peer2 Config",
+          "type": "Menu",
+          "menu": [
+            {
+              "name": "Peer 2 Address",
+              "type": "SingleRwEndpoint",
+              "description": "CoAP address and path, in the form 'coap://addr_or_name:optional_port'",
+              "args": {
+                  "endpoint": "cfg/peers/peer2/addr",
+                  "validator": "validate_coap_address"
+              }
+            },
+            {
+              "name": "Peer 2 Name",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/peers/peer2/name",
+                  "validator": "validate_peer_name"
+              }
+            },
+            {
+              "name": "Peer 2 Observable",
+              "type": "ObservableRwEndpoint",
+              "description": "JSON array of objects, each object containing\n  \"observeType\" (string, only option is \"directForward\")\n  \"targetTopic\" (array of strings of ZMQ topics), and\n  \"toObserve\" (string, observation path).\nQuotes must be escaped at least once, and sometimes multiple times depending on nesting.",
+              "args": {
+                  "endpoint": "cfg/peers/peer2/obsv",
+                  "observables": {
+                    "default":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      }
+                    ],
+                    "all":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/keypad"],
+                          "toObserve": "/st/keypad"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/joystick/calibrated"],
+                          "toObserve": "/st/joystick/calibrated"
+                      }
+                    ]
+                  }
+              }
+            },
+            {
+              "name":"Delete Peer 2",
+              "type": "DiscreteCfgMultiPostEndpoint",
+              "args": {
+                "prompt": "Confirm Deletion [type \"delete\"]:",
+                "action_descriptor": {
+                    "delete": [
+                        ["cfg/peers/peer2", {"name": ""}],
+                        ["cfg/peers/peer2", {"addr": ""}],
+                        ["cfg/peers/peer2", {"obsv": "[]"}]
+                    ]
+                },
+                "validator" : "validate_peer_deletion"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Peer3 Config",
+          "type": "Menu",
+          "menu": [
+            {
+              "name": "Peer 3 Address",
+              "type": "SingleRwEndpoint",
+              "description": "CoAP address and path, in the form 'coap://addr_or_name:optional_port'",
+              "args": {
+                  "endpoint": "cfg/peers/peer3/addr",
+                  "validator": "validate_coap_address"
+              }
+            },
+            {
+              "name": "Peer 3 Name",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/peers/peer3/name",
+                  "validator": "validate_peer_name"
+              }
+            },
+            {
+              "name": "Peer 3 Observable",
+              "type": "ObservableRwEndpoint",
+              "description": "JSON array of objects, each object containing\n  \"observeType\" (string, only option is \"directForward\")\n  \"targetTopic\" (array of strings of ZMQ topics), and\n  \"toObserve\" (string, observation path).\nQuotes must be escaped at least once, and sometimes multiple times depending on nesting.",
+              "args": {
+                  "endpoint": "cfg/peers/peer3/obsv",
+                  "observables": {
+                    "default":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      }
+                    ],
+                    "all":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/keypad"],
+                          "toObserve": "/st/keypad"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/joystick/calibrated"],
+                          "toObserve": "/st/joystick/calibrated"
+                      }
+                    ]
+                  }
+              }
+            },
+            {
+              "name":"Delete Peer 3",
+              "type": "DiscreteCfgMultiPostEndpoint",
+              "args": {
+                "prompt": "Confirm Deletion [type \"delete\"]:",
+                "action_descriptor": {
+                    "delete": [
+                        ["cfg/peers/peer3", {"name": ""}],
+                        ["cfg/peers/peer3", {"addr": ""}],
+                        ["cfg/peers/peer3", {"obsv": "[]"}]
+                    ]
+                },
+                "validator" : "validate_peer_deletion"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Peer4 Config",
+          "type": "Menu",
+          "menu": [
+            {
+              "name": "Peer 4 Address",
+              "type": "SingleRwEndpoint",
+              "description": "CoAP address and path, in the form 'coap://addr_or_name:optional_port'",
+              "args": {
+                  "endpoint": "cfg/peers/peer4/addr",
+                  "validator": "validate_coap_address"
+              }
+            },
+            {
+              "name": "Peer 4 Name",
+              "type": "SingleRwEndpoint",
+              "args": {
+                  "endpoint": "cfg/peers/peer4/name",
+                  "validator": "validate_peer_name"
+              }
+            },
+            {
+              "name": "Peer 4 Observable",
+              "type": "ObservableRwEndpoint",
+              "description": "JSON array of objects, each object containing\n  \"observeType\" (string, only option is \"directForward\")\n  \"targetTopic\" (array of strings of ZMQ topics), and\n  \"toObserve\" (string, observation path).\nQuotes must be escaped at least once, and sometimes multiple times depending on nesting.",
+              "args": {
+                  "endpoint": "cfg/peers/peer4/obsv",
+                  "observables": {
+                    "default":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      }
+                    ],
+                    "all":[
+                      {
+                        "observeType": "directForward",
+                        "targetTopic": [
+                            "/sf/0/to",
+                            "/sf/1/to"
+                        ],
+                        "toObserve": "/sf/0/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": [
+                              "/sf/0/to",
+                              "/sf/1/to"
+                          ],
+                          "toObserve": "/sf/1/s"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/keypad"],
+                          "toObserve": "/st/keypad"
+                      },
+                      {
+                          "observeType": "directForward",
+                          "targetTopic": ["/st/joystick/calibrated"],
+                          "toObserve": "/st/joystick/calibrated"
+                      }
+                    ]
+                  }
+              }
+            },
+            {
+              "name":"Delete Peer 4",
+              "type": "DiscreteCfgMultiPostEndpoint",
+              "args": {
+                "prompt": "Confirm Deletion [type \"delete\"]:",
+                "action_descriptor": {
+                    "delete": [
+                        ["cfg/peers/peer4", {"name": ""}],
+                        ["cfg/peers/peer4", {"addr": ""}],
+                        ["cfg/peers/peer4", {"obsv": "[]"}]
+                    ]
+                },
+                "validator" : "validate_peer_deletion"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "CoAP Server Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Multicast group",
+          "type": "SingleRwEndpoint",
+          "description": "An IP address in the multicast group range of 224.0.0.0-239.255.255.255",
+          "args": {
+            "endpoint": "cfg/coapd/mcGroup",
+            "validator": "validate_coapd_mcgroup"
+          }
+        },
+        {
+          "name": "Restart CoAP server",
+          "type": "DiscreteCfgMultiPostEndpoint",
+          "args": {
+            "prompt": "Confirm restart [type \"restart\"]:",
+            "action_descriptor": {
+              "restart": [
+                ["cfg/coapd", {"restart":true}]
+              ]
+            },
+            "validator": "validate_service_restart"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Safety Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "(WO) I/O Direction",
+          "type": "DiscreteCfgMultiPostEndpoint",
+          "args": {
+              "prompt": "Enter I/O Direction [I/O]:",
+              "action_descriptor": {
+                  "i": [
+                      ["cfg/sf/smcu/global", {"firmware": "/usr/lib/smcu/dev_in/ER_RO"}],
+                      ["cfg/sf/smcu/global", {"firmwareCrcs": "/usr/lib/smcu/dev_in/ER_FS"}],
+                      ["cfg/sf/smcu/global", {"optionBytes": "/usr/lib/smcu/dev_in/ER_OPT_BYTES"}]
+                  ],
+                  "o": [
+                      ["cfg/sf/smcu/global", {"firmware": "/usr/lib/smcu/dev_out/ER_RO"}],
+                      ["cfg/sf/smcu/global", {"firmwareCrcs": "/usr/lib/smcu/dev_out/ER_FS"}],
+                      ["cfg/sf/smcu/global", {"optionBytes": "/usr/lib/smcu/dev_out/ER_OPT_BYTES"}]
+                  ]
+              },
+              "validator": "validate_io_dir"
+          }
+        },
+        {
+          "name": "(RO) I/O Direction",
+          "type": "DiscreteCfgMultiGetEndpoint",
+          "args": {
+              "endpoints": [
+                "cfg/sf/smcu/global/firmware",
+                "cfg/sf/smcu/global/firmwareCrcs",
+                "cfg/sf/smcu/global/optionBytes"
+              ],
+              "labels" :{
+                "Input": [
+                  "/usr/lib/smcu/dev_in/ER_RO",
+                  "/usr/lib/smcu/dev_in/ER_FS",
+                  "/usr/lib/smcu/dev_in/ER_OPT_BYTES"
+                ],
+                "Output":[
+                  "/usr/lib/smcu/dev_out/ER_RO",
+                  "/usr/lib/smcu/dev_out/ER_FS",
+                  "/usr/lib/smcu/dev_out/ER_OPT_BYTES"
+                ]
+              }
+          }
+        },
+        {
+          "name": "Comms Timeout",
+          "type": "SingleRwEndpoint",
+          "description": "Milliseconds without receiving new safety data before the SMCU treats the connection as lost",
+          "args": {
+              "endpoint": "cfg/sf/smcu/global/timeoutMs",
+              "validator": "validate_comms_timeout"
+          }
+        },
+        {
+          "name": "SMCU0 Scramble Key",
+          "type": "SingleRwEndpoint",
+          "description": "Key used to scramble outgoing safety data\n4-byte hexadecimal with leading 0x, eg. '0xaabbccdd'",
+          "args": {
+              "endpoint": "cfg/sf/smcu/smcu0/txkey",
+              "validator": "validate_scramble_key"
+          }
+        },
+        {
+          "name": "SMCU1 Scramble Key",
+          "type": "SingleRwEndpoint",
+          "description": "Key used to scramble outgoing safety data\n4-byte hexadecimal with leading 0x, eg. '0xaabbccdd'",
+          "args": {
+              "endpoint": "cfg/sf/smcu/smcu1/txkey",
+              "validator": "validate_scramble_key"
+          }
+        },
+        {
+          "name": "Care Scramble Key 0",
+          "type": "SafetyCareDeviceEndpoint",
+          "description": "Key used to descramble incoming safety data from pair SMCU0\n4-byte hexadecimal with leading 0x, eg. '0xaabbccdd'",
+          "args": {
+              "endpoint": "cfg/sf/smcu/care0/smcu0key",
+              "validator": "validate_scramble_key"
+          }
+        },
+        {
+          "name": "Care Scramble Key 1",
+          "type": "SafetyCareDeviceEndpoint",
+          "description": "Key used to descramble incoming safety data from pair SMCU1\n4-byte hexadecimal with leading 0x, eg. '0xaabbccdd'",
+          "args": {
+              "endpoint": "cfg/sf/smcu/care0/smcu1key",
+              "validator": "validate_scramble_key"
+          }
+        },
+        {
+          "name": "Own Device ID",
+          "type": "SingleRwEndpoint",
+          "description": "Positive integer, but currently only allowed to be either 1 or 2",
+          "args": {
+              "endpoint": "cfg/sf/smcu/global/deviceId",
+              "validator": "validate_device_id"
+          }
+        },
+        {
+          "name": "Care Device ID",
+          "type": "SafetyCareDeviceEndpoint",
+          "description": "Device Id must be an integer >= 1 and <=0x7ff7.",
+          "args": {
+              "endpoint": "cfg/sf/smcu/care0/deviceId",
+              "validator": "validate_device_id"
+          }
+        },
+        {
+          "name": "Delete Care Device",
+          "type": "SafetyCareDeviceEndpoint",
+          "description": "Delete Care Device and Associated scramble keys.",
+          "args": {
+              "endpoint": "cfg/sf/smcu/care0/deviceId",
+              "validator": "validate_device_id"
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "ISM Config",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Serial Port",
+          "type": "SingleRwEndpoint",
+          "description": "Path to the ISM radio's serial port",
+          "args": {
+              "endpoint": "cfg/radio/ism0/ismSerial",
+              "validator": "validate_ism_serial"
+          }
+        },
+        {
+          "name": "Radio Id",
+          "type": "SingleRwEndpoint",
+          "descrption": "12 hexadecimal characters, without any leading '0x'",
+          "args": {
+              "endpoint": "cfg/radio/ism0/radioId",
+              "validator": "validate_ism_radio_id"
+          }
+        },
+        {
+          "name": "Reset Pin Name",
+          "type": "SingleRwEndpoint",
+          "description": "Must be AP_ISM_RESET_L",
+          "args": {
+              "endpoint": "cfg/radio/ism0/resetPin",
+              "validator": "validate_ism_reset_pin"
+          }
+        },
+        {
+          "name": "Peer Id",
+          "type": "SingleRwEndpoint",
+          "descrption": "12 hexadecimal characters, without any leading '0x'",
+          "args": {
+              "endpoint": "cfg/radio/ism0/peerId",
+              "validator": "validate_ism_peer_id"
+          }
+        },
+        {
+          "name": "Port Number",
+          "type": "SingleRwEndpoint",
+          "description": "UDP port number >1024 and <49000",
+          "args": {
+              "endpoint": "cfg/radio/ism0/ismPort",
+              "validator": "validate_ism_port"
+          }
+        },
+        {
+          "name": "Connection Mode",
+          "type": "SingleRwEndpoint",
+          "description": "Must be one of 'base', 'tdmabase', 'tdmaremote', 'cw', or 'cwmod'",
+          "args": {
+              "endpoint": "cfg/radio/ism0/connectionMode",
+              "validator": "validate_connection_mode"
+          }
+        },
+        {
+          "name": "ISM Power",
+          "type": "SingleRwEndpoint",
+          "description": "Must be an integer within +-20",
+          "args": {
+              "endpoint": "cfg/radio/ism0/power",
+              "validator": "validate_ism_power"
+          }
+        },
+        {
+          "name": "RF Channel",
+          "type": "SingleRwEndpoint",
+          "description": "Must be an integer from 1-26\nFor the ISM EU radio, only RF channel 1 is supported.",
+          "args": {
+              "endpoint": "cfg/radio/ism0/rfChannel",
+              "validator": "validate_ism_rf_channel"
+          }
+        },
+        {
+          "name": "(RO) ISM Version",
+          "type": "Menu",
+          "menu":[
+            {
+              "name":"ISM Full Version",
+              "type": "ISMVersionRoEndpoint",
+              "args": {
+              "endpoint": "info/ism/full_version"
+              }
+            },
+            {
+              "name":"ISM Frequency Band",
+              "type": "ISMVersionRoEndpoint",
+              "args": {
+              "endpoint": "info/ism/freq_band"
+              }
+            },
+            {
+              "name":"ISM Hardware Version",
+              "type": "ISMVersionRoEndpoint",
+              "args": {
+              "endpoint": "info/ism/hw_ver"
+              }
+            },
+            {
+              "name":"ISM Radio Type",
+              "type": "ISMVersionRoEndpoint",
+              "args": {
+              "endpoint": "info/ism/radio_type"
+              }
+            },
+            {
+              "name":"ISM Firmware Version",
+              "type": "ISMVersionRoEndpoint",
+              "args": {
+              "endpoint": "info/ism/fw_ver"
+              }
+            },
+            {
+              "name":"ISM Protocol Version",
+              "type": "ISMVersionRoEndpoint",
+              "args": {
+              "endpoint": "info/ism/protocol_ver"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "(RO) Device Info",
+      "type": "Menu",
+      "menu": [
+        {
+          "name": "Application Processor SN",
+          "type": "SingleRoEndpoint",
+          "args": {
+              "endpoint": "info/serial/cpu"
+          }
+        },
+        {
+          "name": "Security Processor SN",
+          "type": "SingleRoEndpoint",
+          "args": {
+              "endpoint": "info/serial/se"
+          }
+        },
+        {
+          "name": "BLE MAC Address",
+          "type": "SingleRoEndpoint",
+          "args": {
+              "endpoint": "info/mac/bt0"
+          }
+        },
+        {
+          "name": "Wifi MAC Address",
+          "type": "SingleRoEndpoint",
+          "args": {
+              "endpoint": "info/mac/wlan0"
+          }
+        },
+        {
+          "name": "Version Information",
+          "type": "SingleRoEndpoint",
+          "args": {
+              "endpoint": "info/fw/version"
+          }
+        },
+        {
+          "name": "Get All Logs",
+          "type": "GetLogsEndpoint",
+          "args": {
+              "prompt": "Journal Filename (will be in /tmp/<filename>.journal):",
+              "prompt_for_password": "Enter device password:",
+              "relavent_logs": [
+                "smcu0_manage",
+                "smcu1_manage",
+                "ble_l2cap",
+                "epc-peer-manager",
+                "coapd",
+                "epc_ip_manager",
+                "rauc",
+                "ism-manager",
+                "registry",
+                "security"
+              ],
+              "validator": "validate_journald_filename"
+          }
+        }
+      ]
+    },
+    {
+  "name": "Lab Setups",
+  "type": "Menu",
+  "menu": [
+    {
+      "name": "Ethernet EPC Pair",
+      "type": "DiscreteCfgMultiPostEndpoint",
+      "args": {
+          "prompt": "Select input or output device (i/o):",
+          "action_descriptor": {
+              "i": [
+                  ["cfg/net/eth0/port0", {"ip": "10.3.9.239/23"}],
+                  ["cfg/peers/peer0", {"addr": "10.3.9.240"}]
+
+              ],
+              "o": [
+                  ["cfg/net/eth0/port0", {"ip": "10.3.9.240/23"}],
+                  ["cfg/peers/peer0", {"addr": "10.3.9.239"}],
+                  ["cfg/sf/smcu/global", {"firmware": "/usr/lib/smcu/dev_out/ER_RO"}],
+                  ["cfg/sf/smcu/global", {"firmwareCrcs": "/usr/lib/smcu/dev_out/ER_FS"}],
+                  ["cfg/sf/smcu/global", {"optionBytes": "/usr/lib/smcu/dev_out/ER_OPT_BYTES"}],
+                  ["cfg/sf/smcu/smcu0", {"txkey": "0xaabbccdd"}],
+                  ["cfg/sf/smcu/smcu1", {"txkey": "0xbbccddee"}],
+                  ["cfg/sf/smcu/care0", {"smcu0key": "0x11223344"}],
+                  ["cfg/sf/smcu/care0", {"smcu1key": "0x22334455"}],
+                  ["cfg/sf/smcu/global", {"deviceId": "2"}],
+                  ["cfg/sf/smcu/care0", {"deviceId": "1"}]
+              ]
+          },
+          "validator": "validate_io_dir"
+      }
+    }
+    ]
+  },
+  {
+    "name": "CAN Config",
+    "type": "Menu",
+    "menu": [
+      {
+        "name": "CAN Service",
+        "type": "SingleRwEndpoint",
+        "description": "'none' for no CAN service or 'canopen' for CAN Service in CANOpen protocol support or 'j1939' for CAN service with j1939 protocol support",
+        "args": {
+            "endpoint": "cfg/net/can0/canService",
+            "validator": "validate_can0_service"
+        }
+      },
+      {
+        "name": "CAN Interface Bitrate",
+        "type": "SingleRwEndpoint",
+        "description": "Must be one of 10000, 20000, 50000, 125000, 250000, 500000, 800000, 1000000",
+        "args": {
+            "endpoint": "cfg/net/can0/canBitrate",
+            "validator": "validate_can0_bitrate"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Device Firmware Update",
+    "type": "Menu",
+    "menu": [
+      {
+        "name": "Firmware Update",
+        "type": "WriteFileSha",
+        "description":"Update EPC firmware by valid .tar.zst package, Package size should be < 200 MB",
+        "args": {
+          "endpoint": "fl/fw/epc",
+          "path": "./epc-update.tar.zst",
+          "maxSize": 209715200,
+          "validator": "validate_firmware_update"
+        }
+      },
+      {
+        "name": "Update Status",
+        "type": "ObservableRoEndpoint",
+        "description":"Observe Status of update that is being insalled",
+        "args": {
+            "endpoint": "fl/fw/epc/status"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Device reboot",
+    "type": "SingleRebootEndpoint",
+    "args": {
+      "prompt": "Confirm reboot [type \"reboot\"]:",
+      "action_descriptor": {
+        "reboot": [
+          ["cfg/setup/systemReset",""]
+        ]
+      },
+      "validator": "validate_system_reboot"
+    }
+  }
+  ]
+}
