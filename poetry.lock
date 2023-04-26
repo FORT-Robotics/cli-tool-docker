@@ -1,0 +1,266 @@
+[[package]]
+name = "aiocoap"
+version = "0.4b3"
+description = "Python CoAP library"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+all = ["DTLSSocket (>=0.1.11a1)", "LinkHeader", "LinkHeader", "cbor", "cbor", "cryptography (>=2.0)", "filelock", "hkdf", "pygments", "termcolor"]
+docs = ["LinkHeader", "LinkHeader", "cbor", "cbor", "cryptography (>=2.0)", "filelock", "hkdf", "pygments", "sphinx", "sphinx-argparse", "termcolor"]
+linkheader = ["LinkHeader"]
+oscore = ["cbor", "cryptography (>=2.0)", "filelock", "hkdf"]
+prettyprint = ["LinkHeader", "cbor", "pygments", "termcolor"]
+tinydtls = ["DTLSSocket (>=0.1.11a1)"]
+
+[[package]]
+name = "async-generator"
+version = "1.10"
+description = "Async generators and context managers for Python 3.5+"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "cbor2"
+version = "5.4.2.post1"
+description = "Pure Python CBOR (de)serializer with extensive tag support"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+doc = ["sphinx-autodoc-typehints (>=1.2.0)", "sphinx-rtd-theme"]
+test = ["pytest", "pytest-cov"]
+
+[[package]]
+name = "certifi"
+version = "2022.12.7"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "charset-normalizer"
+version = "2.0.12"
+description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
+category = "main"
+optional = false
+python-versions = ">=3.5.0"
+
+[package.extras]
+unicode-backport = ["unicodedata2"]
+
+[[package]]
+name = "idna"
+version = "3.4"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "importlib-metadata"
+version = "4.8.3"
+description = "Read metadata from Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+typing-extensions = {version = ">=3.6.4", markers = "python_version < \"3.8\""}
+zipp = ">=0.5"
+
+[package.extras]
+docs = ["jaraco.packaging (>=8.2)", "rst.linker (>=1.9)", "sphinx"]
+perf = ["ipython"]
+testing = ["flufl.flake8", "importlib-resources (>=1.3)", "packaging", "pep517", "pyfakefs", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.0.1)", "pytest-flake8", "pytest-mypy", "pytest-perf (>=0.9.2)"]
+
+[[package]]
+name = "invoke"
+version = "1.7.3"
+description = "Pythonic task execution"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "linuxfd"
+version = "1.5"
+description = "Python bindings for the Linux eventfd/signalfd/timerfd/inotify syscalls"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pyserial"
+version = "3.5"
+description = "Python Serial Port Extension"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+cp2110 = ["hidapi"]
+
+[[package]]
+name = "requests"
+version = "2.27.1"
+description = "Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+charset-normalizer = {version = ">=2.0.0,<2.1.0", markers = "python_version >= \"3\""}
+idna = {version = ">=2.5,<4", markers = "python_version >= \"3\""}
+urllib3 = ">=1.21.1,<1.27"
+
+[package.extras]
+socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+use-chardet-on-py3 = ["chardet (>=3.0.2,<5)"]
+
+[[package]]
+name = "simple-term-menu"
+version = "1.6.1"
+description = "A Python package which creates simple interactive menus on the command line."
+category = "main"
+optional = false
+python-versions = "~=3.5"
+
+[[package]]
+name = "sliplib"
+version = "0.6.2"
+description = "Slip package"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+dev = ["mypy", "pylint", "pytest (>=5.4)", "pytest-cov", "pytest-mock", "pytest-pylint", "sphinx", "sphinx-rtd-theme", "tox", "twine", "wheel"]
+docs = ["sphinx", "sphinx-rtd-theme"]
+test = ["mypy", "pylint", "pytest (>=5.4)", "pytest-cov", "pytest-mock", "pytest-pylint"]
+
+[[package]]
+name = "typing-extensions"
+version = "4.0.0"
+description = "Backported and Experimental Type Hints for Python 3.6+"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "urllib3"
+version = "1.26.15"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[package.extras]
+brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
+secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+
+[[package]]
+name = "zipp"
+version = "3.6.0"
+description = "Backport of pathlib-compatible object wrapper for zip files"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+docs = ["jaraco.packaging (>=8.2)", "rst.linker (>=1.9)", "sphinx"]
+testing = ["func-timeout", "jaraco.itertools", "pytest (>=4.6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.0.1)", "pytest-flake8", "pytest-mypy"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = ">=3.6,<4.0"
+content-hash = "1cfdab2bc4c010ff0f1597aed91a943f7dfde6d90fbb4ba7beee9e0a5e34ef2b"
+
+[metadata.files]
+aiocoap = [
+    {file = "aiocoap-0.4b3.tar.gz", hash = "sha256:e426cd1f4fd21d4567dc2f2f31c3bb797cb3148ebdb4fb886ea4e25695d0aebc"},
+]
+async-generator = [
+    {file = "async_generator-1.10-py3-none-any.whl", hash = "sha256:01c7bf666359b4967d2cda0000cc2e4af16a0ae098cbffcb8472fb9e8ad6585b"},
+    {file = "async_generator-1.10.tar.gz", hash = "sha256:6ebb3d106c12920aaae42ccb6f787ef5eefdcdd166ea3d628fa8476abe712144"},
+]
+cbor2 = [
+    {file = "cbor2-5.4.2.post1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:21a8778a92fae2fa713dfee2dc781fce64bc8fcb2e085368eff3a0b3434f83c7"},
+    {file = "cbor2-5.4.2.post1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c55b683d2e84df1da6db527faac12a9b2b844a80c0a7864088c1aaf07e4ad1d4"},
+    {file = "cbor2-5.4.2.post1-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:8b0455854dc53d816518ec5c117bf159b8d23d178ff8f655e3290192878264d5"},
+    {file = "cbor2-5.4.2.post1-cp310-cp310-win_amd64.whl", hash = "sha256:566b6f85fd8caf85b34b75dd7056dd0ae076334af4def0e27da805c10f941ae1"},
+    {file = "cbor2-5.4.2.post1-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:92126b8fb5b20aa7167a5c0a84bb9562f54004af06ef601d05897dcad8a926f0"},
+    {file = "cbor2-5.4.2.post1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9c5e01b12a2f9172d31e096d65c1965a5b3b95bdb1ca91feb89741e6ce6a533a"},
+    {file = "cbor2-5.4.2.post1-cp36-cp36m-musllinux_1_1_x86_64.whl", hash = "sha256:6930fe3f83d5f4d9f83baf9a225651591e2f97ae04579bac6598c9520f71bbcc"},
+    {file = "cbor2-5.4.2.post1-cp36-cp36m-win_amd64.whl", hash = "sha256:1e4f694b135688d6126988af602409e1d94dcdefbb7b242b56ba3a09779930fb"},
+    {file = "cbor2-5.4.2.post1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:7c2a4336becc4021777df04371f119d74cf83befb604fb4e62cfb2d50dac9fbd"},
+    {file = "cbor2-5.4.2.post1-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:231cba333cbac0e8912042f04e78b3f8eacde8ee08777e197f10f7a2e42c43af"},
+    {file = "cbor2-5.4.2.post1-cp37-cp37m-musllinux_1_1_x86_64.whl", hash = "sha256:e497c91bf107490503c1d834a04ccfc849d8b0b36ff8ee1598f10712864a4c87"},
+    {file = "cbor2-5.4.2.post1-cp37-cp37m-win_amd64.whl", hash = "sha256:92e40496c33de912f16f275b88e063073343b39faa63a6d10deb6fdf5127ae44"},
+    {file = "cbor2-5.4.2.post1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:565fe95a720b2e999cb56d19d1d309097930144f0c85eed34a058c14cf3ac897"},
+    {file = "cbor2-5.4.2.post1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d140b20b0bcbdfa80a910c6832aaa13f870b7045e39f8d9b5b652ef87ce3eac5"},
+    {file = "cbor2-5.4.2.post1-cp38-cp38-musllinux_1_1_x86_64.whl", hash = "sha256:85c048f5fc170b619127c0eb2dcc7bc832e982e3cefbaec19c028afe0d231864"},
+    {file = "cbor2-5.4.2.post1-cp38-cp38-win_amd64.whl", hash = "sha256:75621aaa144e5f51bea3a1c753bad11ed7f3669a086222d09975953b5df6b0bf"},
+    {file = "cbor2-5.4.2.post1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:1c924fefd4fc7419a87463186c0c0ffc65c88635e813e02eff98751c49e43ab0"},
+    {file = "cbor2-5.4.2.post1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a54b9cfe5ddfc7d1199d2a9e37e799c0c2b01385ce837b80feaeaf912d4797f2"},
+    {file = "cbor2-5.4.2.post1-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:53239908e4e80395dada750f612536dab9d4f09b9a419479b4d69e1e2419656f"},
+    {file = "cbor2-5.4.2.post1-cp39-cp39-win_amd64.whl", hash = "sha256:1621f53af3b8016c991f9e27123efae54006cf57c321693f234fec9636c55d6b"},
+    {file = "cbor2-5.4.2.post1.tar.gz", hash = "sha256:9cf21d59604b9529d7877c8e0342a2ebaae1a07fe8ff5683dc75fec15847c797"},
+]
+certifi = [
+    {file = "certifi-2022.12.7-py3-none-any.whl", hash = "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"},
+    {file = "certifi-2022.12.7.tar.gz", hash = "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"},
+]
+charset-normalizer = [
+    {file = "charset-normalizer-2.0.12.tar.gz", hash = "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"},
+    {file = "charset_normalizer-2.0.12-py3-none-any.whl", hash = "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"},
+]
+idna = [
+    {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
+    {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
+]
+importlib-metadata = [
+    {file = "importlib_metadata-4.8.3-py3-none-any.whl", hash = "sha256:65a9576a5b2d58ca44d133c42a241905cc45e34d2c06fd5ba2bafa221e5d7b5e"},
+    {file = "importlib_metadata-4.8.3.tar.gz", hash = "sha256:766abffff765960fcc18003801f7044eb6755ffae4521c8e8ce8e83b9c9b0668"},
+]
+invoke = [
+    {file = "invoke-1.7.3-py3-none-any.whl", hash = "sha256:d9694a865764dd3fd91f25f7e9a97fb41666e822bbb00e670091e3f43933574d"},
+    {file = "invoke-1.7.3.tar.gz", hash = "sha256:41b428342d466a82135d5ab37119685a989713742be46e42a3a399d685579314"},
+]
+linuxfd = [
+    {file = "linuxfd-1.5.tar.gz", hash = "sha256:b8c00109724b68e093f9b556edd78e41ed65fb8d969fd0e83186a97b5d3139b4"},
+]
+pyserial = [
+    {file = "pyserial-3.5-py2.py3-none-any.whl", hash = "sha256:c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0"},
+    {file = "pyserial-3.5.tar.gz", hash = "sha256:3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb"},
+]
+requests = [
+    {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
+    {file = "requests-2.27.1.tar.gz", hash = "sha256:68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"},
+]
+simple-term-menu = [
+    {file = "simple-term-menu-1.6.1.tar.gz", hash = "sha256:368b4158d1749b868552fb6c054b8301785086c71a7253dac8404cc3cb2d30e8"},
+    {file = "simple_term_menu-1.6.1-py3-none-any.whl", hash = "sha256:f12945d5c6998088e86a228e0aff12ff655f5bfad786c86677f23faa1d2afa50"},
+]
+sliplib = [
+    {file = "sliplib-0.6.2-py3-none-any.whl", hash = "sha256:43622142805e08b0671210935b47f2d45cb94db84ffbba8660665750d0fde4e3"},
+    {file = "sliplib-0.6.2.tar.gz", hash = "sha256:443f480339927c2a192783626dcab6eb1726e2ec78ce35405ff4935316138b29"},
+]
+typing-extensions = [
+    {file = "typing_extensions-4.0.0-py3-none-any.whl", hash = "sha256:829704698b22e13ec9eaf959122315eabb370b0884400e9818334d8b677023d9"},
+    {file = "typing_extensions-4.0.0.tar.gz", hash = "sha256:2cdf80e4e04866a9b3689a51869016d36db0814d84b8d8a568d22781d45d27ed"},
+]
+urllib3 = [
+    {file = "urllib3-1.26.15-py2.py3-none-any.whl", hash = "sha256:aa751d169e23c7479ce47a0cb0da579e3ede798f994f5816a74e4f4500dcea42"},
+    {file = "urllib3-1.26.15.tar.gz", hash = "sha256:8a388717b9476f934a21484e8c8e61875ab60644d29b9b39e11e4b9dc1c6b305"},
+]
+zipp = [
+    {file = "zipp-3.6.0-py3-none-any.whl", hash = "sha256:9fe5ea21568a0a70e50f273397638d39b03353731e6cbbb3fd8502a33fec40bc"},
+    {file = "zipp-3.6.0.tar.gz", hash = "sha256:71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832"},
+]
