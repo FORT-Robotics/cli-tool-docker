@@ -17,7 +17,8 @@ COPY poetry.lock pyproject.toml /app/
 RUN poetry config virtualenvs.create false \
     && poetry install --no-dev --no-interaction --no-ansi
 
-COPY . /app
+COPY . .
 
+WORKDIR /app/fort_cli_cfg/
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD python "fort_cli_cfg\cfgtool.py"
+ENTRYPOINT python cfgtool.py
