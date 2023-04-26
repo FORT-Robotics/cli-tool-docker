@@ -15,7 +15,7 @@ COPY poetry.lock pyproject.toml /app/
 # RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 # USER appuser
 RUN poetry config virtualenvs.create false \
-    && poetry install $(test "$YOUR_ENV" == production && echo "--no-dev") --no-interaction --no-ansi
+    && poetry install --no-dev --no-interaction --no-ansi
 
 COPY . /app
 
