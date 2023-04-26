@@ -12,7 +12,7 @@ simple-term-menu = "^1.2.1"
 pyserial = "^3.5"
 sliplib = "^0.6.2"
 invoke = "^1.6.0"
-typing-extensions = "^3.10.0.2"
+# typing-extensions = "^3.10.0.2"
 cbor2 = "^5.4.2"
 linuxfd = "^1.5"
 async_generator = { version = "^1.10", python = "<3.7" }
